@@ -2,3 +2,10 @@
   margin: 0;
   padding: 0;
 }
+
+body{
+  padding-inline: 80px;
+  background-color: #f9f9f9;
+}
+
+

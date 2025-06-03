@@ -1,0 +1,79 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-top h2{
+    font-size: 30px;
+}
+
+.search-bar{
+    display: flex;
+    flex-grow: 1;
+    max-width: 650px;
+    margin: 0 20px;
+}
+
+.search-input {
+    padding: 10px;
+    flex-grow: 1;
+    border: 2px solid #075B5E;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-input::placeholder {
+    color: #ccc;
+}
+
+.search-btn{
+background-color: #FF3F33;
+color: #000;
+border: none;
+padding: 10px 15px;
+border-radius:20px 0 0 20px ;
+font-weight: bold;
+cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icons .icon {
+font-size: 35px;
+cursor: pointer;
+}
+
+.profile-group {
+    position: relative;
+}
+
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 28px;
+    right: -30px;
+    background: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 150px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-group:hover .dropdown-menu {
+    display: block;
+}
