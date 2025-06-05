@@ -1,11 +1,25 @@
+@font-face {
+  font-family: 'Vazir';
+  src: url(./fonts/Vazir.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: Vazir;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body{
   padding-inline: 80px;
   background-color: #f9f9f9;
+}
+
+a{
+ color: #000; 
+ text-decoration: none;
 }
 
 

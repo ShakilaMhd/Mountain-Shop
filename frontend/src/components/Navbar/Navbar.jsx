@@ -3,13 +3,13 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
 import "./Navbar.css";
 
-// const navigate = useNavigate()
-
-const handleNavigation = (patch) => {
-  navigate(patch);
-};
-
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (patch) => {
+    navigate(patch);
+  };
+
   return (
     <div>
       <nav className="navbar">

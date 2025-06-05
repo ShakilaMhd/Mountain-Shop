@@ -77,3 +77,35 @@ cursor: pointer;
 .profile-group:hover .dropdown-menu {
     display: block;
 }
+
+.dropdown-item{
+    color: gray;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    bottom: 15px;
+    right: -5px;
+    color: white;
+    background: red;
+    border-radius: 50%;
+    font-size: 0.7em;
+    padding: 0.2rem 0.4rem;
+}
+
+.nav-container{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.navbar-link{
+    font-size: 20px;
+    font-weight: 600;
+}
