@@ -1,15 +1,15 @@
 import React from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
-
-// const navigate = useNavigate()
-
-const handleNavigation = (patch) => {
-    navigate(patch)
-}
-
+import "./Navbar.css";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (patch) => {
+    navigate(patch);
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -17,6 +17,7 @@ function Navbar() {
           <Link to="/">
             <h2>فروشگاه کوه</h2>
           </Link>
+
           <div className="search-bar">
             <input
               type="text"
@@ -35,7 +36,10 @@ function Navbar() {
                 <p className="dropdown-item">خروج</p>
               </div>
             </div>
-            <div className="cart-icon" onClick={() => handleNavigation("/cart")}>
+            <div
+              className="cart-icon"
+              onClick={() => handleNavigation("/cart")}
+            >
               <BiCart className="icon" />
               <span className="cart-count">0</span>
             </div>
@@ -43,12 +47,42 @@ function Navbar() {
         </div>
         <div className="nav-bottom">
           <div className="nav-container">
-            <div onClick={() => handleNavigation("/category/clothes")} className="navbar-link">لباس</div>
-            <div onClick={() => handleNavigation("/category/tent")} className="navbar-link">چادر</div>
-            <div onClick={() => handleNavigation("/category/bag")} className="navbar-link">کوله</div>
-            <div onClick={() => handleNavigation("/category/shoes")} className="navbar-link">کفش</div>
-            <div onClick={() => handleNavigation("/category/accessories")} className="navbar-link">لوازم جانبی</div>
-            <div onClick={() => handleNavigation("/category/glasses")} className="navbar-link">عینک</div>
+            <div
+              onClick={() => handleNavigation("/category/clothes")}
+              className="navbar-link"
+            >
+              لباس
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/tent")}
+              className="navbar-link"
+            >
+              چادر
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/bag")}
+              className="navbar-link"
+            >
+              کوله
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/shoes")}
+              className="navbar-link"
+            >
+              کفش
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/accessories")}
+              className="navbar-link"
+            >
+              لوازم جانبی
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/glasses")}
+              className="navbar-link"
+            >
+              عینک
+            </div>
           </div>
         </div>
       </nav>

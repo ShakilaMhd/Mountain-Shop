@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 
 const App = () => {
   return (
-    <div>
+    <div lang="rtl">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
