@@ -64,6 +64,27 @@ function Navbar() {
         <div className="nav-bottom">
           <div className="nav-container">
             <div
+              onClick={() => handleNavigation("/category/Men")}
+              className="navbar-link"
+            >
+              مردانه
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/Women")}
+              className="navbar-link"
+            >
+              زنانه
+            </div>
+            <div
+              onClick={() => handleNavigation("/category/Kids")}
+              className="navbar-link"
+            >
+              بچگانه
+            </div>
+          </div>
+
+          {/* <div className="nav-container">
+            <div
               onClick={() => handleNavigation("/category/clothes")}
               className="navbar-link"
             >
@@ -99,7 +120,7 @@ function Navbar() {
             >
               عینک
             </div>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
