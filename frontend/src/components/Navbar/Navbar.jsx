@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
 import { FaCentos } from "react-icons/fa";
 import "./Navbar.css";
+import { ShopContext } from "../../context/ShopContext";
 
 function Navbar() {
   const [loading, setLoading] = useState(false);
+  const { updateSearchTerm } = useContext(ShopContext);
 
   const navigate = useNavigate();
 
@@ -15,6 +17,12 @@ function Navbar() {
       setLoading(false);
     }, 2000);
     navigate(patch);
+  };
+
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = () => {
+    updateSearchTerm(searchInput);
   };
 
   return (
@@ -37,10 +45,12 @@ function Navbar() {
           <div className="search-bar">
             <input
               type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               className="search-input"
               placeholder="محصول خودرا سرچ کنید..."
             />
-            <button className="search-btn">جستجو</button>
+            <button onClick={handleSearch} className="search-btn">جستجو</button>
           </div>
           <div className="icons">
             <div className="profile-group">

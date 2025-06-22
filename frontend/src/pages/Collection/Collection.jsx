@@ -6,11 +6,12 @@ import men_wear from "../../assets/men-wear.png";
 import kid_wear from "../../assets/kid-banner.png";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, searchTerm } = useContext(ShopContext);
   const { category } = useParams();
 
   const filteredProduct = products.filter(
     (product) => product.category.toLowerCase() === category.toLocaleLowerCase()
+    && product.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
 
   // const bannerImages = {
