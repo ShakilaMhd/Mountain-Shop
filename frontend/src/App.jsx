@@ -6,11 +6,13 @@ import Cart from "./pages/Cart/Cart";
 import Collection from "./pages/Collection/Collection";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
 
 const App = () => {
   return (
     <div lang="rtl">
       <Navbar />
+      {/* <Hero /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
