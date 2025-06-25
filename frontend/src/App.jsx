@@ -7,6 +7,7 @@ import Collection from "./pages/Collection/Collection";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/category/:category" element={<Collection />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
