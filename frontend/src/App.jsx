@@ -7,10 +7,13 @@ import Collection from "./pages/Collection/Collection";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import Footer from "./components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <div lang="rtl">
+      <ToastContainer />
       <Navbar />
       {/* <Hero /> */}
       <Routes>
@@ -20,6 +23,7 @@ const App = () => {
         <Route path="/category/:category" element={<Collection />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

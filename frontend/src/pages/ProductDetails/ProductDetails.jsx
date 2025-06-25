@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/ShopContext";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import RelatedProduct from "../../components/RelatedProduct/RelatedProduct";
 
 const ProductDetails = () => {
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const { productId } = useParams();
 
   const [productData, setProductData] = useState(false);
@@ -73,7 +74,9 @@ const ProductDetails = () => {
               <p>پرداخت یکپارچه و ایمن</p>
               <p>چندین گزینه پرداخت موجود است</p>
             </div>
-            <button className="add-to-cart-btn">اضافه کردن به کارت</button>
+            <button onClick={() => addToCart(productData._id, size)} className="add-to-cart-btn">
+              اضافه کردن به کارت
+            </button>
           </div>
         </div>
         <div className="description-review-sect">
@@ -96,6 +99,7 @@ const ProductDetails = () => {
             </p>
           </div>
         </div>
+        <RelatedProduct category={productData.category} />
       </div>
     </div>
   ) : (
