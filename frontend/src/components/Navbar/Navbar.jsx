@@ -7,7 +7,7 @@ import { ShopContext } from "../../context/ShopContext";
 
 function Navbar() {
   const [loading, setLoading] = useState(false);
-  const { updateSearchTerm } = useContext(ShopContext);
+  const { updateSearchTerm, getCartCount } = useContext(ShopContext);
 
   const navigate = useNavigate();
 
@@ -67,7 +67,7 @@ function Navbar() {
               onClick={() => handleNavigation("/cart")}
             >
               <BiCart className="icon" />
-              <span className="cart-count">0</span>
+              <span className="cart-count">{getCartCount()}</span>
             </div>
           </div>
         </div>

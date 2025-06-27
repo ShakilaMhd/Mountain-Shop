@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/ShopContext";
 import { Link } from "react-router-dom";
 const RelatedProduct = ({ category }) => {
-  const { products } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [relatedProduct, setRelatedProduct] = useState([]);
 
   const related = products.filter(
@@ -31,7 +31,7 @@ const RelatedProduct = ({ category }) => {
                   </Link>
                 </div>
                 <h3>{product.name}</h3>
-                <p>{product.price}تومان</p>
+                <p>{product.price}{currency}</p>
               </div>
             ))
           ) : (
