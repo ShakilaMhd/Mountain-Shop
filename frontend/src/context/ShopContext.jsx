@@ -75,6 +75,7 @@ const ShopContextProvider = ({ children }) => {
 
   const value = {
     products,
+    cartItems,
     currency,
     searchTerm,
     updateSearchTerm,
