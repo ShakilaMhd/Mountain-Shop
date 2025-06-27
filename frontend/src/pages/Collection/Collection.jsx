@@ -6,7 +6,7 @@ import men_wear from "../../assets/men-wear.png";
 import kid_wear from "../../assets/kid-banner.png";
 
 const Collection = () => {
-  const { products, searchTerm } = useContext(ShopContext);
+  const { products, searchTerm, currency } = useContext(ShopContext);
   const { category } = useParams();
 
   const filteredProduct = products.filter(
@@ -51,7 +51,7 @@ const Collection = () => {
                 </Link>
               </div>
               <h3>{product.name}</h3>
-              <p>{product.price}تومان</p>
+              <p>{product.price}{currency}</p>
             </div>
           ))
         ) : (

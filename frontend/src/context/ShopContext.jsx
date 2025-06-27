@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 export const ShopContext = createContext();
 
 const ShopContextProvider = ({ children }) => {
-  const currency = "$";
+  const currency = "هزار تومان";
+  const delivery_fee = 20;
 
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState(product);
@@ -31,9 +32,9 @@ const ShopContextProvider = ({ children }) => {
     }
 
     setCartItems(updatedCart);
-    console.log(`product added to cart: itemId - ${itemId}, size - ${size}`)
+    console.log(`product added to cart: itemId - ${itemId}, size - ${size}`);
 
-    toast.success('محصول به سبد اضافه شد')
+    toast.success("محصول به سبد اضافه شد");
   };
 
   // function to get the amount of items in the cart
@@ -64,17 +65,18 @@ const ShopContextProvider = ({ children }) => {
     for (const itemId in cartItems) {
       const itemInfo = products.find((product) => product._id === itemId);
 
-      if(itemInfo) {
-        for(const size in cartItems[itemId]){
-          totalAmount += itemInfo.price * cartItems[itemId][size]
+      if (itemInfo) {
+        for (const size in cartItems[itemId]) {
+          totalAmount += itemInfo.price * cartItems[itemId][size];
         }
       }
     }
-    return totalAmount
+    return totalAmount;
   };
 
   const value = {
     products,
+    delivery_fee,
     cartItems,
     currency,
     searchTerm,
@@ -82,7 +84,7 @@ const ShopContextProvider = ({ children }) => {
     addToCart,
     getCartCount,
     updateQuantity,
-    getCartAmount
+    getCartAmount,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
