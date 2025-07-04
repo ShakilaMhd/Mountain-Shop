@@ -24,9 +24,8 @@ const App = () => {
         <Login setToken={setToken} />
       ) : (
         <>
-          {" "}
           <div className="app-content">
-            <Sidebar />
+            <Sidebar setToken={setToken}/>
             <div className="page-content">
               <Routes>
                 <Route path="/add" element={<Add />} />
