@@ -10,21 +10,24 @@ const Sidebar = () => {
     <div className="sidebar-container">
       <div className="sidebar-header">
         <FaCentos className="sidebar-logo" />
+        <h2>فروشگاه لباس</h2>
       </div>
       <div className="sidebar-links">
         <NavLink className="sidebar-link" to="/add">
           <IoMdAddCircleOutline className="sidebar-icon" />
           <p className="sidebar-text">اضافه کردن محصول</p>
         </NavLink>
-        <NavLink>
-          <MdFormatListBulletedAdd   className="sidebar-icon" />
+        <NavLink className="sidebar-link" to="/list">
+          <MdFormatListBulletedAdd  className="sidebar-icon" />
           <p className="sidebar-text">لیست محصولات</p>
         </NavLink>
+        
 
         <NavLink className="sidebar-link" to="/orders">
           <MdAddShoppingCart className="sidebar-icon" />
           <p className="sidebar-text">سفارشات</p>
         </NavLink>
+        
 
         <button className="sidebar-link">
           <IoIosLogOut className="sidevar-icon" />
