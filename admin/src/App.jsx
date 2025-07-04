@@ -6,8 +6,12 @@ import List from "./pages/List/List";
 import Orders from "./pages/Orders/Orders";
 import Login from "./components/Login/Login";
 
+// export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = "http://localhost:4000"
+
 const App = () => {
   const [token, setToken] = useState("");
+
 
   return (
     <div className="app-container">
