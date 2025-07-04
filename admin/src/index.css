@@ -1,15 +1,28 @@
 .app-conatiner {
-    background-color: #f9f9f9;
-    min-height: 100vh;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 
 .app-divider {
-    margin: 0;
-    border: none;
-    border-top: 1px solid #e0e0e0;
+  margin: 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
 }
 
 .app-contect {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
+}
+
+.page-content {
+  width: 70%;
+  margin: 2rem auto;
+  margin-right: max(5vw, 25px);
+  color: #4a4a4a;
+  font-size: 1rem;
+}
+
+.active {
+  background-color: rgba(243, 141, 7);
+  border-color: #f3e744;
 }
