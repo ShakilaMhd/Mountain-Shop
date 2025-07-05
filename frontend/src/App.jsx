@@ -10,6 +10,9 @@ import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 
+export const backendUrl = "http://localhost:4000"
+
+
 const App = () => {
   return (
     <div lang="rtl">
