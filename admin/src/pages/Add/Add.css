@@ -1,0 +1,89 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+}
+
+.image-upload-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.upload-preview {
+  width: 6rem;
+  cursor: pointer;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group-horizantal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.price-input {
+  max-width: 120px;
+}
+
+.size-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.size-option {
+  padding: 0.9rem;
+  cursor: pointer;
+  border: 1px solid #f3e744;
+  border-radius: 4px;
+}
+
+.size-option.selected {
+  background-color: rgb(243, 141, 7);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 20px;
+}
+
+.submit-button {
+    /* max-width: 500px; */
+    padding: 0.75rem 5rem;
+    background-color: rgb(243, 141, 7);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+textarea {
+    height: 100px;
+}
