@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import upload_img from "../../assets/upload_image.png";
-import "./Add.css";
-import axios from "axios";
-import { backendUrl } from "../../App";
+import "./Add.css"
+import axios from 'axios'
+import {backendUrl} from "../../App"
 import { toast } from "react-toastify";
 
-const Add = ({ token }) => {
+
+const Add = ({token}) => {
   const [image1, setImage1] = useState(false);
   const [image2, setImage2] = useState(false);
   const [image3, setImage3] = useState(false);
@@ -16,9 +17,9 @@ const Add = ({ token }) => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Men");
   const [bestSeller, setBestSeller] = useState(false);
-  const [size, setSize] = useState([]);
+  const [sizes, setSizes] = useState([]);
 
-  const onSubmitHandler = async (e) => {
+  const onSubmintHandler = async (e) => {
     e.preventDefault();
 
     try {
@@ -29,42 +30,28 @@ const Add = ({ token }) => {
       formData.append("price", price);
       formData.append("category", category);
       formData.append("bestSeller", bestSeller);
-      formData.append("size", JSON.stringify(size));
+      formData.append("sizes", JSON.stringify(sizes));
 
-      image1 && formData.append("image1", image1 ? image1 : null);
-      image2 && formData.append("image2", image2 ? image2 : null);
-      image3 && formData.append("image3", image3 ? image3 : null);
-      image4 && formData.append("image4", image4 ? image4 : null);
+      image1 && formData.append("image1", image1 ? image1 : null)
+      image2 && formData.append("image2", image2 ? image2 : null)
+      image3 && formData.append("image3", image3 ? image3 : null)
+      image4 && formData.append("image4", image4 ? image4 : null)
+
 
       const response = await axios.post(
-        backendUrl + "/api/product/add",
-        formData,
-        { headers: { token } }
-      );
+        backendUrl + "/api/product/add" , formData, {headers: {token}}
+      ) 
 
-      console.log(response.data);
-      // console.log(formData.si);
+      console.log(response.data)
 
-      if (response.data.success) {
-        toast.success(response.data.message);
-        setName("");
-        setDescription("");
-        setPrice("");
-        setImage1(false);
-        setImage2(false);
-        setImage3(false);
-        setImage4(false);
-      } else {
-        toast.error(response.data.message);
-      }
+
     } catch (error) {
       console.log(error)
-      toast.error(error.message)
     }
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className="form-container">
+    <form action="" onSubmit={onSubmintHandler} className="form-container">
       <div>
         <p className="form-label">آپلود عکس</p>
         <div className="image-upload-container">
@@ -122,41 +109,40 @@ const Add = ({ token }) => {
           </label>
         </div>
       </div>
-
       <div className="form-group">
-        <div className="form-label">اسم محصول</div>
+        <p className="form-label">اسم محصول</p>
         <input
           type="text"
           onChange={(e) => setName(e.target.value)}
           value={name}
+          placeholder="اسم محصول خودرا وارد کنید"
           className="form-input"
-          placeholder="اسم محصول خود را وارد کنید"
           required
         />
       </div>
 
       <div className="form-group">
-        <div className="form-label">توضیحات محصول</div>
+        <p className="form-label">توضیخات محصول</p>
         <textarea
           type="text"
           onChange={(e) => setDescription(e.target.value)}
           value={description}
+          placeholder="توضیحات محصول را وارد کنید"
           className="form-input"
-          placeholder="توضیحات محصول خود را وارد کنید"
           required
         />
       </div>
-      <div className="form-group-horizantal">
+      <div className="form-group-horizontal">
         <div>
-          <p className="form-label">دسته بندی محصول</p>
+          <p className="form-label"> دسته بندی محصولات</p>
           <select
             onChange={(e) => setCategory(e.target.value)}
             value={category}
             className="form-select"
           >
             <option value="Men">مردانه</option>
-            <option value="Women">زنانه</option>
-            <option value="Kids">بچگانه</option>
+            <option value="Woman">زنانه</option>
+            <option value="kids">بچگانه</option>
           </select>
         </div>
         <div>
@@ -171,38 +157,39 @@ const Add = ({ token }) => {
         </div>
       </div>
       <div>
-        <p className="form-label">سایز محصول</p>
+        <p className="form-label">سایز محصولات</p>
         <div className="size-options">
           {["S", "M", "L", "XL", "XXL"].map((size) => (
             <div
               key={size}
               onClick={() =>
-                setSize((prev) =>
+                setSizes((prev) =>
                   prev.includes(size)
                     ? prev.filter((item) => item !== size)
                     : [...prev, size]
                 )
               }
-              className={`size-option ${size.includes(size) ? "selected" : ""}`}
+              className={`size-option ${
+                sizes.includes(size) ? "selected" : ""
+              }`}
             >
               {size}
             </div>
           ))}
         </div>
       </div>
+
       <div className="checkbox-group">
         <input
           onChange={() => setBestSeller((prev) => !prev)}
           checked={bestSeller}
           type="checkbox"
           id="bestseller"
-          className=""
+          className="check"
         />
         <label htmlFor="bestseller">اضافه به بهترین ها</label>
       </div>
-      <button type="submit" className="submit-button">
-        اضافه کردن محصول
-      </button>
+      <button type="submit" className="submit-button">اضافه کردن محصول</button>
     </form>
   );
 };
