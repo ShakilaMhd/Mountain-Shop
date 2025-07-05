@@ -38,7 +38,7 @@ const addProduct = async (req, res) => {
         res.json({ success: true, message: "product added successfully" })
 
 
-        // console.log(name, price, description, category, sizes, bestseller)
+        console.log(name, price, description, category, size, bestseller)
 
         // res.json({})
 
