@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
 import { FaCentos } from "react-icons/fa";
 import "./Navbar.css";
@@ -7,7 +7,14 @@ import { ShopContext } from "../../context/ShopContext";
 
 function Navbar() {
   const [loading, setLoading] = useState(false);
-  const { updateSearchTerm, getCartCount } = useContext(ShopContext);
+  const { updateSearchTerm, getCartCount, token, setToken } =
+    useContext(ShopContext);
+
+const logout = () => {
+  navigate("/login")
+  localStorage.removeItem("token")
+  setToken("")
+}
 
   const navigate = useNavigate();
 
@@ -50,7 +57,9 @@ function Navbar() {
               className="search-input"
               placeholder="محصول خودرا سرچ کنید..."
             />
-            <button onClick={handleSearch} className="search-btn">جستجو</button>
+            <button onClick={handleSearch} className="search-btn">
+              جستجو
+            </button>
           </div>
           <div className="icons">
             <div className="profile-group">
@@ -59,7 +68,7 @@ function Navbar() {
                 <Link to="/login">
                   <p className="dropdown-item">حساب</p>
                 </Link>
-                <p className="dropdown-item">خروج</p>
+                <p onClick={logout} className="dropdown-item">خروج</p>
               </div>
             </div>
             <div

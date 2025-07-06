@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { createContext, useState, useEffect } from "react";
 import { product } from "../assets/assets";
 import { toast } from "react-toastify";
@@ -13,10 +14,13 @@ const ShopContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState(product);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [token, setToken] = useState("");
+  
   const updateSearchTerm = (term) => {
     setSearchTerm(term);
   };
+  
+  // const navigate = useNavigate();
 
   //function add items to cart
   const addToCart = async (itemId, size) => {
@@ -84,11 +88,11 @@ const ShopContextProvider = ({ children }) => {
       if (response.data.success) {
         setProducts(response.data.products);
       } else {
-        toast.error(response.data.message)
+        toast.error(response.data.message);
       }
     } catch (error) {
-      console.log(error)
-      toast.error(error.message)
+      console.log(error);
+      toast.error(error.message);
     }
   };
 
@@ -107,6 +111,9 @@ const ShopContextProvider = ({ children }) => {
     getCartCount,
     updateQuantity,
     getCartAmount,
+    // navigate,
+    token,
+    setToken,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Cart from "./pages/Cart/Cart";
@@ -12,7 +12,7 @@ import { ToastContainer } from "react-toastify";
 
 export const backendUrl = "http://localhost:4000"
 
-
+// const navigate = useNavigate()
 const App = () => {
   return (
     <div lang="rtl">
