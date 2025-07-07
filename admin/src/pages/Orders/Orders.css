@@ -1,0 +1,66 @@
+.order-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.order-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.order-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-order-details {
+  padding: 10px;
+}
+
+.order-customer {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.order-card span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-items,
+.payment-method {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+.order-amount {
+    text-align: center;
+    font-size: 1.4rem;
+    color: red;
+}
+
+
+.order-status {
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointerF;
+}
