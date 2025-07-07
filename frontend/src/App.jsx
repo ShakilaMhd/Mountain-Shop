@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
+import Checkout from "./pages/Checkout/Checkout";
 
 export const backendUrl = "http://localhost:4000"
 
@@ -22,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/category/:category" element={<Collection />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
