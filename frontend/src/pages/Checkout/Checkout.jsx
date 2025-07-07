@@ -151,7 +151,7 @@ const Checkout = () => {
             onChange={onChangeHandler}
           />
           <input
-            type="number"
+            type="tel"
             name="phone"
             value={formData.phone}
             className="form-row"
