@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { backendUrl, currency } from "../../App";
 import { toast } from "react-toastify";
-import "./Orders.css"
+import "./Orders.css";
 
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
@@ -36,17 +36,20 @@ const Orders = ({ token }) => {
         backendUrl + "/api/order/status",
         {
           orderId,
-          status: event.target.value
+          status: event.target.value,
         },
         { headers: { token } }
       );
+      // console.log(orderId)
+      // console.log("response status:",response.data.orders[10].status)
 
-      if (response.data.succes) {
-        await fetchAllOrders()
+      if (response.data.success) {
+        await fetchAllOrders();
+        // console.log(response.data.success)
       }
     } catch (error) {
-      console.log(error)
-      toast.error(response.data.message)
+      console.log(error);
+      toast.error(response.data.message);
     }
   };
 
@@ -54,14 +57,14 @@ const Orders = ({ token }) => {
     () => {
       fetchAllOrders();
     },
-    { token }
+    [token ]
   );
   return (
     <div>
       <h3 className="order-title">همه سفارشات</h3>
       <div className="order-container">
         {orders.map((order, index) => (
-          <div className="order-card">
+          <div key={index} className="order-card">
             <div className="order-details">
               <div className="user-order-details">
                 <p className="order-customer">
@@ -118,12 +121,16 @@ const Orders = ({ token }) => {
                 {order.amount}
                 {currency}
               </h2>
-              <select onChange={(event) => statusHandler(event, order._id)} value={order.status} className="order-status" name="" id="">
-                <option value="Order Placed">سفارش قرار داده شده</option>
-                <option value="Packing">بسته بندی</option>
-                <option value="Shipped">فرستاده شده</option>
-                <option value="Out of Delivery">خارج از تحویل</option>
-                <option value="Delivered">تحویل داده شده</option>
+              <select
+                onChange={(event) => statusHandler(event, order._id)}
+                value={order.status}
+                className="order-status"
+              >
+                <option value="سفارش قرار داده شده">سفارش قرار داده شده</option>
+                <option value="بسته بندی">بسته بندی</option>
+                <option value="فرستاده شده">فرستاده شده</option>
+                <option value="خارج از تحویل">خارج از تحویل</option>
+                <option value="تحویل داده شده">تحویل داده شده</option>
               </select>
             </div>
           </div>
