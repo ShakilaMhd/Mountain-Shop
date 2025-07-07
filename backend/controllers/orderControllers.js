@@ -40,7 +40,7 @@ const placeOrder = async (req, res) => {
             address,
             paymentMethod: "COD",
             payment: false,
-            data: Date.now()
+            date: Date.now()
         }
 
         const newOrder = new orderModel(orderData);
@@ -59,13 +59,26 @@ const placeOrder = async (req, res) => {
 }
 
 // placing order using stripe
-const placeOrderStripe = async (req, res) => { }
+const placeOrderStripe = async (req, res) => {
+
+}
 
 // placing order using razorPay
 const placeOrderRazorpay = async (req, res) => { }
 
 // handle updating status from admin panel
-const updateStatus = async (req, res) => { }
+const updateStatus = async (req, res) => {
+    try {
+        const { orderId, status } = req.body
+
+        await orderModel.findByIdAndUpdate(orderId, { status })
+
+        res.json({ success: true, message: 'وضعیت آپدیت شد' })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
 
 
 
