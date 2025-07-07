@@ -7,7 +7,7 @@ const orderRouter = express.Router()
 
 // admin features
 orderRouter.post('/list', adminAuth, allOrder)
-orderRouter.post('/status', adminAuth, allOrder)
+orderRouter.post('/status', adminAuth, updateStatus)
 
 // payment features
 orderRouter.post('/place', authUser, placeOrder)
