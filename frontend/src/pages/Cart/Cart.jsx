@@ -4,6 +4,8 @@ import { product } from "../../assets/assets";
 import { MdDelete } from "react-icons/md";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import "./Cart.css"
+import { Link } from "react-router-dom";
+
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
     useContext(ShopContext);
@@ -84,7 +86,9 @@ const Cart = () => {
         <div className="checkout-box">
           <CartTotal />
           <div className="checkout-button-container">
-            <button className="checkout-button">پرداخت هزینه</button>
+            <Link to="/Checkout">
+            <button className="checkout-button" >پرداخت هزینه</button>
+            </Link>
           </div>
         </div>
       </div>

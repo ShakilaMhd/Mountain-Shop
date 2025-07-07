@@ -55,7 +55,7 @@ const ProductDetails = () => {
             <div className="size-selector">
               <p>انتخاب سایز</p>
               <div className="size-buttons">
-                {productData.sizes.map((item, index) => (
+                {productData.size.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => setSize(item)}
