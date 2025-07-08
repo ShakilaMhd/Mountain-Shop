@@ -16,8 +16,16 @@ const ShopContextProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [token, setToken] = useState("");
 
+
+
   const updateSearchTerm = (term) => {
     setSearchTerm(term);
+  };
+
+    const valuee = {
+    products,
+    updateSearchTerm,
+    searchTerm
   };
 
   // const navigate = useNavigate();
@@ -166,7 +174,7 @@ const ShopContextProvider = ({ children }) => {
     // navigate,
     token,
     setToken,
-    setCartItems
+    setCartItems,
   };
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
