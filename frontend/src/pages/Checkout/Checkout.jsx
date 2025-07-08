@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 const Checkout = () => {
   const [method, setMethod] = useState("cod");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     cartItems,
@@ -75,15 +75,29 @@ const Checkout = () => {
             { headers: { token } }
           );
           console.log(response.data);
-          console.log(orderData)
+          console.log(orderData);
 
           if (response.data.success) {
-            setCartItems({})
-            navigate("/orders")
-          }else{
-            toast.error(response.data.message)
+            setCartItems({});
+            navigate("/orders");
+          } else {
+            toast.error(response.data.message);
           }
           break;
+
+        case "stripe":
+          const responseStripe = await axios.post(
+            backendUrl + "/api/order/stripe",
+            orderData,
+            { headers: { token } }
+          );
+
+          if (responseStripe.data.success) {
+            const { session_url } = responseStripe.data;
+            window.location.replace(session_url);
+          } else {
+            toast.error(responseStripe.data.message);
+          }
 
         default:
           break;
@@ -166,7 +180,12 @@ const Checkout = () => {
             placeholder="آدرس"
             onChange={onChangeHandler}
           />
-          <input type="text" name="address" value={formData.address} onChange={onChangeHandler}/>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={onChangeHandler}
+          />
         </div>
 
         <div className="form-checkout">

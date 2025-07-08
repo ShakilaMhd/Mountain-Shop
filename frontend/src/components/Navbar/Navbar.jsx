@@ -46,7 +46,7 @@ const logout = () => {
       <nav className="navbar">
         <div className="nav-top">
           <Link to="/">
-            <h2>فروشگاه کوه</h2>
+            <h2>فروشگاه لباس</h2>
           </Link>
 
           <div className="search-bar">
@@ -66,7 +66,10 @@ const logout = () => {
               <BiUser className="icon" />
               <div className="dropdown-menu">
                 <Link to="/login">
-                  <p className="dropdown-item">حساب</p>
+                  <p className="dropdown-item">ورود/ثبت نام</p>
+                </Link>
+                <Link to='/orders' className="dropdown-item">
+                سفارشات
                 </Link>
                 <p onClick={logout} className="dropdown-item">خروج</p>
               </div>
