@@ -1,14 +1,21 @@
 .orders-container {
   padding-top: 2rem;
   border-top: 2rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
 }
 
-.order-title-h1 {
+.order-container{
+  border: 1px solid #437057;
+}
+.order-title h1 {
   font-size: 30px;
+  padding: 2rem ;
+
 }
 
 .order-item-container {
-  padding: 1rem 0;
+  padding: 2rem ;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   color: #374151;
@@ -38,6 +45,7 @@ font-size: 1rem;
 .order-item-info {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.7rem;
     margin-top: 0.5rem;
     font-size: 1rem;
@@ -64,7 +72,7 @@ gap: 6rem;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #b92610;
+  background-color: #437057;
 }
 
 .track-order-btn {
@@ -75,9 +83,10 @@ gap: 6rem;
   align-self: center;
   font-size: 1rem;
   font-weight: 500;
-  border-radius: 1rem;
+  border-radius: 2px;
 }
 
 .track-order-btn:hover {
-  background-color: red;
+  background-color: #437057;
+  color: #fff;
 }

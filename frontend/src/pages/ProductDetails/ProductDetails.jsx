@@ -48,8 +48,8 @@ const ProductDetails = () => {
             <h1 className="product-name">{productData.name}</h1>
             <hr className="product-divider" />
             <p className="product-price">
-              {currency}
-              {productData.price}
+              {productData.price} &nbsp;
+               {currency}
             </p>
             <p className="product-description">{productData.description}</p>
             <div className="size-selector">
@@ -74,7 +74,10 @@ const ProductDetails = () => {
               <p>پرداخت یکپارچه و ایمن</p>
               <p>چندین گزینه پرداخت موجود است</p>
             </div>
-            <button onClick={() => addToCart(productData._id, size)} className="add-to-cart-btn">
+            <button
+              onClick={() => addToCart(productData._id, size)}
+              className="add-to-cart-btn"
+            >
               اضافه کردن به کارت
             </button>
           </div>
@@ -82,21 +85,9 @@ const ProductDetails = () => {
         <div className="description-review-sect">
           <div className="tabs">
             <b className="tab active">توضیحات</b>
-            <p className="tab">مرور</p>
           </div>
           <div className="description-content">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-              beatae error accusamus debitis cum molestias dicta laudantium illo
-              tempore nulla. Et eaque aut officia a beatae similique magnam
-              possimus accusantium?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, recusandae. Assumenda sed quas quo, reprehenderit a aut
-              sit corporis labore, enim consequuntur perferendis accusamus rem
-              quia, dignissimos provident cupiditate modi.
-            </p>
+            <p>{productData.description}</p>
           </div>
         </div>
         <RelatedProduct category={productData.category} />

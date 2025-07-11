@@ -52,10 +52,10 @@ const Cart = () => {
                   <p className="cart-product-name">{productData.name}</p>
                   <div className="product-price-size">
                     <p className="cart-product-price">
+                      {productData.price} &nbsp;
                       {currency}
-                      {productData.price}
                     </p>
-                    <p className="size">{productData.size}</p>
+                    <p className="size">{productData.size}&nbsp;</p>
                   </div>
                 </div>
               </div>

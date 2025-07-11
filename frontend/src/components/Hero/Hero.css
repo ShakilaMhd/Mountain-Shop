@@ -50,6 +50,14 @@
     border-radius: 10px;
 }
 
+.detail h2 {
+  font-size: 20px;
+}
+
+.hero-content .detail p {
+  font-size: 5px;
+}
+
 .hero-content{
     display: flex;
     gap: 15px;
@@ -57,7 +65,7 @@
 
 .info-icon .hero-icon{
     font-size: 44px;
-    color: red;
+    color: #437057;
 }
 
 .hero-content .detail h3{

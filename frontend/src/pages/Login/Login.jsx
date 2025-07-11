@@ -62,7 +62,7 @@ const Login = () => {
   }, [token]);
 
   return (
-    <div>
+    <div className="form-div">
       <form onSubmit={onSubmitHandler} className="auth-form">
         <div className="form-header">
           <p className="form-title">{currentState}</p>
@@ -113,7 +113,7 @@ const Login = () => {
           )}
         </div>
         <button className="form-btn">
-          {currentState === "ورود" ? "Sign In" : "ثبت نام"}
+          {currentState === "ورود" ? "وارد شوید" : "ثبت نام"}
         </button>
       </form>
     </div>
