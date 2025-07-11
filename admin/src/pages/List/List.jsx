@@ -49,7 +49,7 @@ const List = ({ token }) => {
 
   useEffect(() => {
     fetchList();
-  }, []);
+  }, [token]);
 
   return (
     <div>

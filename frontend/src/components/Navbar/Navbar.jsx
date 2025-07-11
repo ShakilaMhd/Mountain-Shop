@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
+import { IoMdLogOut } from "react-icons/io";
 import { FaCentos } from "react-icons/fa";
 import "./Navbar.css";
 import { ShopContext } from "../../context/ShopContext";
@@ -12,13 +13,11 @@ function Navbar() {
   const { updateSearchTerm, getCartCount, token, setToken, searchTerm } =
     useContext(ShopContext);
 
-
-
-const logout = () => {
-  navigate("/login")
-  localStorage.removeItem("token")
-  setToken("")
-}
+  const logout = () => {
+    navigate("/login");
+    localStorage.removeItem("token");
+    setToken("");
+  };
 
   const navigate = useNavigate();
 
@@ -30,11 +29,9 @@ const logout = () => {
     navigate(patch);
   };
 
-
   const handleSearch = () => {
     updateSearchTerm(searchInput);
   };
-
 
   return (
     <div>
@@ -50,7 +47,7 @@ const logout = () => {
       <nav className="navbar">
         <div className="nav-top">
           <Link to="/">
-            <h2>فروشگاه لباس</h2>
+            <h2>لباسکده</h2>
           </Link>
 
           <div className="search-bar">
@@ -70,12 +67,21 @@ const logout = () => {
               <BiUser className="icon" />
               <div className="dropdown-menu">
                 <Link to="/login">
-                  <p className="dropdown-item">ورود/ثبت نام</p>
+                  <p className="dropdown-item">
+                    <BiUser className="icon" />
+                    ورود/ثبت نام
+                  </p>
                 </Link>
-                <Link to='/orders' className="dropdown-item">
-                سفارشات
+                <Link to="/orders" className="dropdown-item">
+                  <p className="dropdown-item">
+                    <BiCart className="icon" />
+                    سفارشات
+                  </p>
                 </Link>
-                <p onClick={logout} className="dropdown-item">خروج</p>
+                <p onClick={logout} className="dropdown-item">
+                  <IoMdLogOut className="icon"/>
+                  خروج
+                </p>
               </div>
             </div>
             <div
@@ -109,80 +115,6 @@ const logout = () => {
             </div>
           </div>
 
- <div className="filter-and-products-container">
-        {/* filter option */}
-        <div className="filter-container">
-          {/* category filter */}
-          <div className="filter-section">
-            <p className="filter-title">جنسیت</p>
-            <div className="filter-category">
-              <p className="filter-item">
-                <input type="checkbox" />
-                مردانه
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                زنانه
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                بچگانه
-              </p>
-            </div>
-          </div>
-          {/* size category */}
-          <div className="filter-section">
-            <p className="filter-title">براساس سایز</p>
-            <div className="filter-category">
-              <p className="filter-item">
-                <input type="checkbox" />
-                نوجوانان
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                ریز اندام
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                سایز بزرگ
-              </p>
-            </div>
-          </div>
-          {/* material filter */}
-          <div className="filter-section">
-            <p className="filter-title">مواد اولیه</p>
-            <div className="filter-category">
-              <p className="filter-item">
-                <input type="checkbox" />
-                پنبه
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                چرم
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                ابریشم
-              </p>
-              <p className="filter-item">
-                <input type="checkbox" />
-                چرم جیر
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* productCotainer */}
-        <div className="product-container">
-          <div className="product-header">
-            <h2>همه محصولات</h2>
-            <select name="" className="sort-dropdown" id="">
-              <option value="وابسته">مرتب سازی براساس وابستگی</option>
-              <option value="پایین-بالا">پایین-بالا</option>
-              <option value="بالا-پایین">بالا-پایین</option>
-            </select>
-          </div>
-        </div>
-      </div>
           {/* <div className="nav-container">
             <div
               onClick={() => handleNavigation("/category/clothes")}

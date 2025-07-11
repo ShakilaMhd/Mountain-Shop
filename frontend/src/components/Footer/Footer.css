@@ -30,7 +30,7 @@
 .input input {
   flex-grow: 1;
   padding: 15px;
-  border: 2px solid #ff7739;
+  border: 2px solid #437057;
   /* border-left: none; */
   border-radius: 20px 0 0 20px;
   outline: none;
@@ -38,7 +38,7 @@
 }
 
 .input button {
-  background-color: #ff7739;
+  background-color: #437057;
   color: black;
   border: none;
   padding: 18px 20px;
@@ -51,11 +51,15 @@
   display: flex;
   justify-content: space-between;
 }
+.footer-left h2{
+  color: #437057;
+}
 
 .socials {
   display: flex;
   gap: 30px;
   margin-top: 10px;
+  color: #437057;
 }
 
 .socials .social-icons {

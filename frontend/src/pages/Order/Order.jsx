@@ -49,46 +49,46 @@ const Order = () => {
   }, [token]);
 
   return (
-    <div>
+    <div className="order-container">
       <div className="orders-container">
         <div className="order-title">
           <h1>سفارشات من</h1>
         </div>
-      </div>
 
-      {orderData.map((item, index) => (
-        <div key={index} className="order-item-container">
-          <div className="order-item-details">
-            <img src={item.image[0]} className="order-item-image" alt="" />
-            <div>
-              <p className="order-item-name">{item.name}</p>
-              <div className="order-item-info">
-                <p>
-                  {item.price}
-                  {currency}
+        {orderData.map((item, index) => (
+          <div key={index} className="order-item-container">
+            <div className="order-item-details">
+              <img src={item.image[0]} className="order-item-image" alt="" />
+              <div>
+                <p className="order-item-name">{item.name}</p>
+                <div className="order-item-info">
+                  <p>
+                    {item.price}
+                    {currency}
+                  </p>
+                  <p>تعداد :{item.quantity}</p>
+                  <p>سایز :{item.size}</p>
+                </div>
+                <p className="order-item-date">
+                   تاریخ : <span>{new Date(item.date).toLocaleString()}</span>
                 </p>
-                <p>تعداد:{item.quantity}</p>
-                <p>سایز:{item.size}</p>
+                <p className="order-item-payment">
+                   نحوه پرداخت :  <span>{item.paymentMethod}</span>
+                </p>
               </div>
-              <p className="order-item-date">
-                تاریخ: <span>{new Date(item.date).toLocaleString()}</span>
-              </p>
-              <p className="order-item-payment">
-                نحوه پرداخت: <span>{item.paymentMethod}</span>
-              </p>
+            </div>
+            <div className="order-item-status-container">
+              <div className="order-item-status">
+                <p className="status-indicator"></p>
+                <p>{item.status}</p>
+              </div>
+              <button onClick={loadOrderData} className="track-order-btn">
+                پیگیری سفارش
+              </button>
             </div>
           </div>
-          <div className="order-item-status-container">
-            <div className="order-item-status">
-              <p className="status-indicator"></p>
-              <p>{item.status}</p>
-            </div>
-            <button onClick={loadOrderData} className="track-order-btn">
-              پیگیری سفارش
-            </button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

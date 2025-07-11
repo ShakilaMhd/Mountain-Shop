@@ -9,6 +9,8 @@ import axios from "axios";
 import { backendUrl } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { MdOutlinePayment } from "react-icons/md";
+import { GoGift } from "react-icons/go";
 
 const Checkout = () => {
   const [method, setMethod] = useState("cod");
@@ -112,110 +114,115 @@ const Checkout = () => {
     <form className="form-container" onSubmit={onSubmitHandler}>
       {/* delivery info section */}
       <div className="form-left">
-        <fieldset className="payment-method">
-          <legend>انواع پرداخت</legend>
-          <div className="payment-options">
-            <div
-              onClick={() => setMethod("stripe")}
-              className="payment-option selected"
-            >
-              <img src={stripe} alt="" className="payment-logo" />
-            </div>
-            <div
-              onClick={() => setMethod("razorpay")}
-              className="payment-option selected"
-            >
-              <img src={razorpay} alt="" className="payment-logo" />
-            </div>
-            <div
-              onClick={() => setMethod("cod")}
-              className="payment-option selected"
-            >
-              <span className="payment-text">پرداخت حضوری</span>
-            </div>
-          </div>
-        </fieldset>
+        <div className="form-payment">
+          <fieldset className="payment-method">
+            <legend>انواع پرداخت</legend>
+            <div className="payment-options">
+              <div
+                onClick={() => setMethod("stripe")}
+                className="payment-option selected"
+              >
+                {/* <img src={stripe} alt="" className="payment-logo" /> */}
+                <span className="payment-text">
+                  <MdOutlinePayment className="icon" />
+                  پرداخت اینترنتی{" "}
+                </span>
+              </div>
 
-        <div className="form-title">
-          <h2>آدرس</h2>
-        </div>
-        <div className="form-row">
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            className="form-row"
-            placeholder="نام"
-            onChange={onChangeHandler}
-          />
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            className="form-row"
-            placeholder="فامیلی"
-            onChange={onChangeHandler}
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            className="form-row"
-            placeholder="ایمیل"
-            onChange={onChangeHandler}
-          />
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            className="form-row"
-            placeholder="شماره تلفن"
-            onChange={onChangeHandler}
-          />
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            className="form-row"
-            placeholder="آدرس"
-            onChange={onChangeHandler}
-          />
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            onChange={onChangeHandler}
-          />
+              <div
+                onClick={() => setMethod("cod")}
+                className="payment-option selected"
+              >
+                <span className="payment-text">
+                  <GoGift className="icon" />
+                  پرداخت حضوری
+                </span>
+              </div>
+            </div>
+          </fieldset>
         </div>
 
-        <div className="form-checkout">
-          <div className="cart-title">
-            <h2>جمع هزینه ها</h2>
-            <div className="cart-total-details">
-              <div className="cart-row">
-                <p>جمع جزء</p>
-                <p>
-                  {getCartAmount()} {currency}
-                </p>
-              </div>
-              <hr className="cart-divider" />
-              <div className="cart-row">
-                <p>هزینه حمل و نقل</p>
-                <p>
-                  {delivery_fee}
-                  {currency}
-                </p>
-              </div>
-              <div className="cart-row cart-total">
-                <b>جمع کل</b>
-                <b>
-                  {getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee}{" "}
-                  {currency}
-                </b>
-              </div>
+        <div className="form-details">
+          <div className="form-title">
+            <h4>اطلاعات پستی</h4>
+          </div>
+          <div className="form-row">
+            <div className="form-items">
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                className="form-row"
+                placeholder="نام"
+                onChange={onChangeHandler}
+              />
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                className="form-row"
+                placeholder="فامیلی"
+                onChange={onChangeHandler}
+              />
+            </div>
+
+            <div className="form-items">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                className="form-row"
+                placeholder="ایمیل"
+                onChange={onChangeHandler}
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                className="form-row"
+                placeholder="شماره تلفن"
+                onChange={onChangeHandler}
+              />
+              <textarea
+                type="text"
+                name="address"
+                value={formData.address}
+                className="form-row"
+                placeholder="آدرس"
+                onChange={onChangeHandler}
+              />
             </div>
           </div>
-          <button type="submit">پرداخت</button>
+
+          <div className="form-checkout">
+            <div className="cart-title">
+              <h2>جمع هزینه ها</h2>
+              <div className="cart-total-details">
+                <div className="cart-row">
+                  <p>جمع جزء</p>
+                  <p>
+                    {getCartAmount()} {currency}
+                  </p>
+                </div>
+                <hr className="cart-divider" />
+                <div className="cart-row">
+                  <p>هزینه حمل و نقل</p>
+                  <p>
+                    {delivery_fee}
+                    {currency}
+                  </p>
+                </div>
+                <div className="cart-row cart-total">
+                  <b>جمع کل</b>
+                  <b>
+                    {getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee}{" "}
+                    {currency}
+                  </b>
+                </div>
+              </div>
+            </div>
+            <button className="sub-btn" type="submit">پرداخت</button>
+          </div>
         </div>
       </div>
     </form>

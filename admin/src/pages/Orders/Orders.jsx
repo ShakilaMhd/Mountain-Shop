@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { backendUrl, currency } from "../../App";
 import { toast } from "react-toastify";
+import { MdDeleteForever, MdRemove } from "react-icons/md";
 import "./Orders.css";
 
 const Orders = ({ token }) => {
@@ -53,12 +54,29 @@ const Orders = ({ token }) => {
     }
   };
 
-  useEffect(
-    () => {
-      fetchAllOrders();
-    },
-    [token ]
-  );
+  const removeOrder = async (_id) => {
+    try {
+      const response = await axios.post(
+        backendUrl + "/api/order/remove",
+        { _id },
+        { headers: { token } }
+      );
+
+      if (response.data.success) {
+        toast.success(response.data.message);
+        console.log(response.data.message);
+
+        await fetchAllOrders();
+      } else {
+        console.log(error);
+        toast.error(error.message);
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchAllOrders();
+  }, [token]);
   return (
     <div>
       <h3 className="order-title">همه سفارشات</h3>
@@ -68,11 +86,11 @@ const Orders = ({ token }) => {
             <div className="order-details">
               <div className="user-order-details">
                 <p className="order-customer">
-                  <span>مشتری</span>
+                  <span>مشتری : </span>
                   {order.address.firstName} {order.address.lastName}
                 </p>
                 <p>
-                  <span>تلفن</span>
+                  <span>تلفن : </span>
                   {order.address.phone}
                 </p>
                 <div className="order-address">
@@ -84,36 +102,39 @@ const Orders = ({ token }) => {
               <div className="order-items">
                 {order.items.map((item, index) => (
                   <div className="order-item" key={index}>
-                    <p>
-                      <span>محصول:</span>
-                      {item.name}
-                    </p>
-                    <p>
-                      <span>تعداد:</span>
-                      {item.quantity}
-                    </p>
-                    <p>
-                      <span>سایز:</span>
-                      {item.size}
-                    </p>
+                    <div className="item">
+                      <p>
+                        <span>محصول : </span>
+                        {item.name}
+                      </p>
+                      <p>
+                        <span>تعداد : </span>
+                        {item.quantity}
+                      </p>
+                      <p>
+                        <span>سایز : </span>
+                        {item.size}
+                      </p>
+                      <img src={item.image} alt="" />
+                    </div>
                   </div>
                 ))}
               </div>
               <div className="payment-method">
                 <p>
-                  <span>آیتم ها:</span>
+                  <span>آیتم ها: </span>
                   {order.items.length}
-                </p>
+                </p>  
                 <p>
-                  <span>نحوه پرداخت:</span>
+                  <span>نحوه پرداخت : </span>
                   {order.paymentMethod}
                 </p>
                 <p>
-                  <span>پرداخت:</span>
+                  <span>پرداخت : </span>
                   {order.payment ? "انجام شده" : "در حال انجام"}
                 </p>
                 <p>
-                  <span>تاریح:</span>
+                  <span>تاریح : </span>
                   {new Date(order.date).toLocaleString()}
                 </p>
               </div>
@@ -132,6 +153,14 @@ const Orders = ({ token }) => {
                 <option value="خارج از تحویل">خارج از تحویل</option>
                 <option value="تحویل داده شده">تحویل داده شده</option>
               </select>
+              <div className="btn">
+                <button
+                  className="btn-delete-order"
+                  onClick={() => removeOrder(order._id)}
+                >
+                  <MdDeleteForever className="btn-icon" />
+                </button>
+              </div>
             </div>
           </div>
         ))}

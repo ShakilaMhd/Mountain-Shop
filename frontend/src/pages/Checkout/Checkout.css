@@ -1,3 +1,69 @@
 img {
     width: 20%;
 }
+
+.form-payment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* padding: 20px; */
+    /* border: 1px solid #437057; */
+}
+
+.payment-method {
+    padding: 20px;
+}
+
+.payment-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.payment-text .icon {
+    font-size: 30px;
+    color: #437057;
+}
+
+fieldset {
+    border-color: #437057;
+}
+
+legend {
+    padding: 0 7px;
+}
+
+.form-details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.form-row .form-items {
+    display: flex;
+    gap: 20px;
+    width: 40%;
+}
+
+.form-row input {
+    width: 50%;
+    border: 1px solid #437057;
+}
+
+.sub-btn {
+    margin-top: 10px;
+    padding: 8px ;
+    border: none;
+    border-radius: 5px;
+    background-color: #437057;
+    color: #fff;
+}

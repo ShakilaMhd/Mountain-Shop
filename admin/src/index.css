@@ -9,9 +9,10 @@
   border-top: 1px solid #e0e0e0;
 }
 
-.app-contect {
+.app-content {
   display: flex;
   width: 100%;
+  background-color: #f9f9f9;
 }
 
 .page-content {
@@ -23,6 +24,6 @@
 }
 
 .active {
-  background-color: rgba(243, 141, 7);
-  border-color: #f3e744;
+  background-color: #437057;
+  /* border-color: #f3e744; */
 }

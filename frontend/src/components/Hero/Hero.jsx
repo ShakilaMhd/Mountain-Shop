@@ -28,7 +28,7 @@ const Hero = () => {
               <FaShippingFast className="hero-icon" />
             </div>
             <div className="detail">
-              <h3>حمل و نقل رایگان</h3>
+              <h2>حمل و نقل رایگان</h2>
               <p>حمل و نقل رایگان به ترتیب</p>
             </div>
           </div>
@@ -37,7 +37,7 @@ const Hero = () => {
               <FiSend className="hero-icon" />
             </div>
             <div className="detail">
-              <h3>تحویل در سراسر جهان</h3>
+              <h2>تحویل در سراسر جهان</h2>
               <p>ما به همه کشورها تحویل می دهیم</p>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Hero = () => {
             </div>
 
             <div className="detail">
-              <h3>پشتیبانی ۲۴ ساعته</h3>
+              <h2>پشتیبانی ۲۴ ساعته</h2>
               <p>پشتیبانی کامل از روند</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const Hero = () => {
             </div>
 
             <div className="detail">
-              <h3>پرداخت ایمن</h3>
+              <h2>پرداخت ایمن</h2>
               <p>پرداخت شما ایمن است</p>
             </div>
           </div>
