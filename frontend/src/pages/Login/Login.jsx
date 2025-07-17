@@ -55,11 +55,17 @@ const Login = () => {
   };
 
   console.log(token)
+
   useEffect(() => {
     if (token) {
       navigate("/");
-    }
+    } 
   }, [token]);
+
+//   useEffect(() => {
+//     console.log(token)
+//   console.log("Token changed:", token);
+// }, [token]);
 
   return (
     <div className="form-div">

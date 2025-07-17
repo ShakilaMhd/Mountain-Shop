@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiUser, BiCart } from "react-icons/bi";
 import { IoMdLogOut } from "react-icons/io";
@@ -13,13 +13,13 @@ function Navbar() {
   const { updateSearchTerm, getCartCount, token, setToken, searchTerm } =
     useContext(ShopContext);
 
+  const navigate = useNavigate();
   const logout = () => {
-    navigate("/login");
     localStorage.removeItem("token");
     setToken("");
+    navigate("/login");
+    console.log("token pak shod");
   };
-
-  const navigate = useNavigate();
 
   const handleNavigation = (patch) => {
     setLoading(true);
@@ -32,6 +32,13 @@ function Navbar() {
   const handleSearch = () => {
     updateSearchTerm(searchInput);
   };
+
+  useEffect(() => {
+    if (!token) {
+      // getCartCount(0)
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div>
@@ -79,7 +86,7 @@ function Navbar() {
                   </p>
                 </Link>
                 <p onClick={logout} className="dropdown-item">
-                  <IoMdLogOut className="icon"/>
+                  <IoMdLogOut className="icon" />
                   خروج
                 </p>
               </div>

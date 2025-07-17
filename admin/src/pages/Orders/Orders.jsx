@@ -115,7 +115,9 @@ const Orders = ({ token }) => {
                         <span>سایز : </span>
                         {item.size}
                       </p>
-                      <img src={item.image} alt="" />
+                      
+                
+                      <img src={item.image[0]} alt="" />
                     </div>
                   </div>
                 ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Checkout.css";
 import { useContext } from "react";
 import { ShopContext } from "../../context/ShopContext";
@@ -109,6 +109,14 @@ const Checkout = () => {
       toast.error(error.message);
     }
   };
+
+
+  
+    useEffect(() => {
+      if (!token) {
+        navigate("/login");
+      }
+    }, []);
 
   return (
     <form className="form-container" onSubmit={onSubmitHandler}>

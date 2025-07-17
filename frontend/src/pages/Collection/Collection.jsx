@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../context/ShopContext";
 import women_wear from "../../assets/women-banner.png";
 import men_wear from "../../assets/men-wear.png";
@@ -28,6 +28,16 @@ const Collection = () => {
     Women: women_wear,
     Kids: kid_wear,
   };
+
+  //  const { token, setToken } = useContext(ShopContext);
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!token) {
+  //     navigate("/login");
+  //   }
+  // }, []);
 
   return (
     <div>

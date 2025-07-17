@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -11,11 +11,22 @@ import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import Checkout from "./pages/Checkout/Checkout";
 import Order from "./pages/Order/Order";
+import { ShopContext } from "./context/ShopContext";
 
-export const backendUrl = "http://localhost:4000"
+export const backendUrl = "http://localhost:4000";
 
 // const navigate = useNavigate()
 const App = () => {
+  const { token, setToken } = useContext(ShopContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+  
   return (
     <div lang="rtl">
       <ToastContainer />
