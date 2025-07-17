@@ -4,7 +4,7 @@ import { product } from "../../assets/assets";
 import { MdDelete } from "react-icons/md";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import "./Cart.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
@@ -32,6 +32,16 @@ const Cart = () => {
 
     setCartData(tempData);
   }, [cartItems, products]);
+
+   const { token, setToken } = useContext(ShopContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/ShopContext";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import RelatedProduct from "../../components/RelatedProduct/RelatedProduct";
 
@@ -25,6 +25,15 @@ const ProductDetails = () => {
     fetchProductData();
   }, [productId, products]);
 
+   const { token, setToken } = useContext(ShopContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
   return productData ? (
     <div>
       <div className="product-container">

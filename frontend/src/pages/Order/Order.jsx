@@ -3,6 +3,7 @@ import "./Order.css";
 import { ShopContext } from "../../context/ShopContext";
 import { backendUrl } from "../../App";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const { token, currency } = useContext(ShopContext);
@@ -47,6 +48,16 @@ const Order = () => {
   useEffect(() => {
     loadOrderData();
   }, [token]);
+
+
+  
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (!token) {
+        navigate("/login");
+      }
+    }, []);
 
   return (
     <div className="order-container">
